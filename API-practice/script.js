@@ -8,15 +8,15 @@
 // getData();
 
 // Asynchronous
-async function getData() {
-  try {
-    const API = "https://fakestoreapi.com/products";
-    var res = await fetch(API);
-    var data = await res.json();
-    console.log("Data:", data);
-  } catch (err) {
-    console.log("Error:", err);
-  }
-}
+// async function getData() {
+//   try {
+//     const API = "https://fakestoreapi.com/products";
+//     var res = await fetch(API);
+//     var data = await res.json();
+//     console.log("Data:", data);
+//   } catch (err) {
+//     console.log("Error:", err);
+//   }
+// }
 
-getData();
+// getData();
