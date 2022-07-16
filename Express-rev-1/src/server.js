@@ -29,6 +29,11 @@ app.get("/about", (req, res) => {
 app.get("/contact", (req, res) => {
   res.render("contact");
 });
+
+app.get("*", (req, res) => {
+  res.render("error");
+});
+
 app.listen(port, () => {
   console.log(`server start running on port ${port}.`);
 });
