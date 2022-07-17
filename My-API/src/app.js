@@ -6,17 +6,14 @@ const Student = require("../models/students");
 
 app.use(express.json());
 
-app.post("/students", (req, res) => {
-  console.log(req.body);
-  const user = new Student(req.body);
-  user
-    .save()
-    .then(() => {
-      res.status(201).send(user);
-    })
-    .catch((err) => {
-      res.status(400).send(err);
-    });
+app.post("/students", async (req, res) => {
+  try {
+    const user = new Student(req.body);
+    const addUser = await user.save();
+    res.status(201).send(addUser);
+  } catch (err) {
+    res.status(400).send(err);
+  }
 });
 
 app.listen(port, () => {
