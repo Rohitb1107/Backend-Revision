@@ -48,4 +48,12 @@ const createDoc = async () => {
   }
 };
 
-createDoc();
+// createDoc();
+
+// Get documents
+const getDocuments = async () => {
+  const result = await User.find();
+  console.log(result);
+};
+
+getDocuments();
