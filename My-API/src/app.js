@@ -17,8 +17,6 @@ app.post("/students", (req, res) => {
     .catch((err) => {
       res.status(400).send(err);
     });
-
-  res.send("Welcome Students");
 });
 
 app.listen(port, () => {

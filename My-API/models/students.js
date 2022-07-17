@@ -18,17 +18,8 @@ const studentsSchema = new mongoose.Schema({
       }
     },
   },
-  phone: {
-    type: Number,
-    min: 10,
-    max: 10,
-    required: true,
-    unique: true,
-  },
-  address: {
-    type: String,
-    required: true,
-  },
+  phone: Number,
+  address: String,
 });
 
 // Create collection
