@@ -27,11 +27,26 @@ app.get("/students", async (req, res) => {
   }
 });
 
-// GET individual students data
+// GET individual students data by id
 app.get("/students/:id", async (req, res) => {
   try {
     const studentData = await Student.findById(req.params.id);
+    console.log(req.params.id);
     res.status(200).send(studentData);
+  } catch (err) {
+    res.status(400).send(err);
+  }
+});
+
+// Update students data by id
+app.patch("/students/:id", async (req, res) => {
+  try {
+    const updateStData = await Student.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      { new: true }
+    );
+    res.status(200).send(updateStData);
   } catch (err) {
     res.status(400).send(err);
   }
