@@ -38,7 +38,7 @@ app.get("/students/:id", async (req, res) => {
   }
 });
 
-// Update students data by id
+// Update student data by id
 app.patch("/students/:id", async (req, res) => {
   try {
     const updateStData = await Student.findByIdAndUpdate(
@@ -47,6 +47,16 @@ app.patch("/students/:id", async (req, res) => {
       { new: true }
     );
     res.status(200).send(updateStData);
+  } catch (err) {
+    res.status(400).send(err);
+  }
+});
+
+// Delete student data by id
+app.delete("/students/:id", async (req, res) => {
+  try {
+    const deleteStData = await Student.findByIdAndDelete(req.params.id);
+    res.status(200).send(deleteStData);
   } catch (err) {
     res.status(400).send(err);
   }
