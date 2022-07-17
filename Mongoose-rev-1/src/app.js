@@ -18,8 +18,34 @@ const usersSchema = new mongoose.Schema({
   },
   age: Number,
   email: String,
-  gender: Boolean,
+  gender: String,
 });
 
-//Crete collection
+// Create collection
 const User = new mongoose.model("User", usersSchema);
+
+// Create document
+const createDoc = async () => {
+  try {
+    const user1 = new User({
+      name: "Rohit",
+      age: 19,
+      email: "rohit@gmail.com",
+      gender: "Male",
+    });
+
+    const user2 = new User({
+      name: "Thor",
+      age: 34,
+      email: "thor@gmail.com",
+      gender: "Male",
+    });
+
+    const res = await User.insertMany([user1, user2]);
+    console.log(res);
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+createDoc();
